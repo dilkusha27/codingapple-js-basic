@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form> 
+        </div>
+    </div> 
+
+    <script>
+        let count = 5;
+        // setTimeout(function() {
+        //     document.querySelector('#second').innerHTML = n-1;
+        // }, 1000)
+
+        // setTimeout(function() {
+        //     document.querySelector('#second').innerHTML = n-2;
+        // }, 2000)
+
+        // setTimeout(function() {
+        //     document.querySelector('#second').innerHTML = n-3;
+        // }, 3000)
+
+        // setTimeout(function() {
+        //     document.querySelector('#second').innerHTML = n-4;
+        // }, 4000)
+        
+        setInterval(function() {
+            document.querySelector('#second').innerHTML = --count;
+            // count -= 1;
+            // if (count >= 0){
+            //     document.querySelector('#second').innerHTML = count;
+            // }
+        }, 1000);
+
+        timer;
+
+        var timer = setTimeout(function() {
+                        document.querySelector('.alert').style.display = 'none';
+                    }, 5000)
+
+        // $('form').on('submit', function() {
+        //     var password = document.querySelector('#password').value;
+        //     if (/[A-Z]/.test(password) == false) { 
+        //         alert('비밀번호를 다시 설정해주세요.')
+        //     }
+        // })
+
+        $('form').on('submit',function(e){
+
+            var 비번 = document.getElementById('password').value;
+            if ( /[A-Z]/.test(비번) == false ){
+                alert('대문자없는데요')
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="send">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+              </form> 
+            <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+    </div> 
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        
+        document.getElementById('email').addEventListener('input', function() {
+            console.log('안녕');
+        }); // input 내 값이 변할때마다 계속 적용됨
+
+        document.getElementById('email').addEventListener('change', function() {
+            console.log('안녕');
+        }); // 입력값이 포커스를 잃을 때 발생
+
+        if (1 == '1') { // 참
+            console.log('안녕');
+        }
+
+        if (1 === '1') { // 거짓 => 타입까지 같아야 참임
+            console.log('안녕');
+        }
+
+        if (1 == 1 && 2 == 2) { // AND 연산자
+            console.log('안녕');
+        }
+
+        if (1 == 1 || 2 == 2) { // OR 연산자
+            console.log('안녕');
+        }
+
+        $('form').on('submit', function() {
+            if (document.getElementById('email').value == '' || document.getElementById('password').value == ''){
+                alert('아이디 / 비밀번호를 입력해주세요');
+            } else if (document.getElementById('password').value.length < 6) {
+                alert('비밀번호는 6자리 이상으로 입력해주세요');
+            }   
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

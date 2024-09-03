@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+
+    <script>
+        // Q1
+        console.log('Q1')
+        var age = 32;
+        const region = '서울';
+
+        // Q2
+        console.log('Q2')
+        var name = 'park';
+        var id = 0;
+
+        function showName(){
+            var name = 'kim';
+            var id = 1;
+            console.log(name);
+        }
+
+        showName();
+        console.log(id);
+
+        // Q3
+
+        console.log('Q3')
+        var 예금액 = 60000;
+        var 미래예금액 = 0;
+
+        function futureDeposit(예금액) {
+            if (예금액 < 50000) {
+                미래예금액 = 예금액 * 1.15 * 1.15;
+            } else {
+                미래예금액 = 예금액 * 1.2 * 1.2;
+            }   
+            return 미래예금액;
+        }
+
+        미래예금액 = futureDeposit(예금액);
+
+        console.log(미래예금액);
+
+        // Q4
+
+        console.log('Q4')
+
+        var first = 180;
+
+        function refill(first) {
+            var second = first * 2/3;
+            var third = second * 2/3;
+            var sum = (first + second + third);
+            console.log(sum);
+        }
+
+        refill(first);
+
+        // Q5
+
+        console.log('Q5')
+
+        var rightAnswer = '1335';
+        var count = 0;
+        // var anwser = document.querySelector('#answer').value;
+        // 페이지 불러올 떄 한번만 실행 (이벤트 리스너와 같이 실행되지 않음)
+        document.querySelector('#send-answer').addEventListener('click', function(){
+            var answer = document.querySelector('#answer').value;
+            if (answer == rightAnswer) {
+                alert('성공')
+            } else if (answer != rightAnswer && count >= 2){
+                count++
+                console.log(count);
+                alert('멍청아')
+            } else {
+                count++
+                console.log(count);
+                alert('오답')
+            }
+        });
+    </script>
+</body>
+</html>
