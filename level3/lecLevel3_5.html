@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        ul.list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        ul.list::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .tab-button {
+            display: block;
+            padding: 10px 20px 10px 20px;
+            float: left;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            color: grey;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .orange {
+            border-top: 2px solid orange;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid white;
+            border-left: 1px solid #ccc;
+            color: black;
+            margin-top: -2px;
+        }
+        .tab-content {
+            display: none;
+            padding: 10px;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button" data-id="0">Products</li>
+            <li class="tab-button orange" data-id="1">Information</li>
+            <li class="tab-button" data-id="2">Shipping</li>
+        </ul>
+        <div class="tab-content">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+            <p>스펙설명입니다. Information</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card p-3">
+            <span id="product">상품명</span>
+            <span id="price">가격</span>
+        </div>
+    </div> 
+
+    <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+            <option>모자</option>
+            <option>셔츠</option>
+            <option>바지</option>
+        </select>
+        <select class="form-select mt-2">
+            <option>95</option>
+            <option>100</option>
+            <option>105</option>
+        </select>
+    </form>
+
+    <div id="test">
+        
+    </div>
+
+    <script>
+        // (1)
+        // var a = document.createElement('p');
+        // a.innerHTML = '안녕';
+        // document.querySelector('#test').appendChild(a)
+
+        // (2)
+        var temp = '<p>안녕</p>';
+        document.querySelector('#test').insertAdjacentHTML('beforeend', temp);
+        $('#test').append(temp);
+
+        var pantsSize = `<option>28</option>
+            <option>30</option>
+            <option>32</option>`; // 백틱(`)기호로 끊어지지 않게
+        
+        $('.form-select').eq(0).on('input', function(){
+            if ($('.form-select').eq(0).val() == '바지'){
+                document.querySelectorAll('.form-select')[1].innerHTML = pantsSize;
+                $('.form-select').eq(1).html(pantsSize);
+            }
+        });
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
